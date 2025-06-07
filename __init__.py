@@ -1,10 +1,8 @@
-# __init__.py
-
-from .nodes import empty_latent_preset, empty_latent_by_axis
+from .nodes import EmptyLatentAspectPreset, EmptyLatentAspectByAxis
 
 NODE_CLASS_MAPPINGS = {
-    "Empty Latent (Aspect Ratio Preset)": empty_latent_preset,
-    "Empty Latent (Aspect Ratio by Axis)": empty_latent_by_axis,
+    "Empty Latent (Aspect Ratio Preset)":      EmptyLatentAspectPreset,
+    "Empty Latent (Aspect Ratio by Axis)":     EmptyLatentAspectByAxis,
 }
 
 NODE_DISPLAY_NAME = "ComfyUI Aspect Ratio Preset"
