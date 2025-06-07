@@ -96,8 +96,9 @@ A[CAS Empty Latent Node] --> B(KSampler) --> C(VAEDecode) --> D(Output)
 ## 📝 Credits
 
 Developed by [@budihartono](https://github.com/budihartono)
-Open source & community-friendly.
-Issues and pull requests are warmly welcomed!
+
+Open source for the benefit of the community.
+Contributions are welcome, but please note: this project is provided as-is, and active support or responses to issues/pull requests may be limited or unavailable.
 
 ---
 
