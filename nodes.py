@@ -18,7 +18,7 @@ class EmptyLatentAspectPreset:
     @classmethod
     def INPUT_TYPES(cls):
         choices = [
-            f"{w}x{h} {lbl} - {model}"
+            f"{w}x{h} - {lbl} - {model}"
             for model, lbl, w, h in PRESETS
         ]
         return {
