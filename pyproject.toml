@@ -1,0 +1,16 @@
+[project]
+name = "aspect-ratio-presets"
+description = "Custom ComfyUI nodes for generating empty latent image with preset and axis-based aspect ratios."
+version = "1.0.0"
+license = {file = "LICENSE"}
+dependencies = ["numpy"]
+
+[project.urls]
+Repository = "https://github.com/budihartono/comfyui-aspect-ratio-presets"
+#  Used by Comfy Registry https://registry.comfy.org
+
+[tool.comfy]
+PublisherId = "budihartono"
+DisplayName = "comfyui-aspect-ratio-presets"
+Icon = "https://i.imgur.com/iRAYcKW.png"
+includes = []
