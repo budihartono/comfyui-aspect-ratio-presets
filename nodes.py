@@ -29,7 +29,7 @@ class EmptyLatentAspectPreset:
         }
 
     RETURN_TYPES = ("LATENT",)
-    RETURN_NAMES = ("empty_latent",)
+    RETURN_NAMES = ("LATENT",)
     FUNCTION     = "generate"
     CATEGORY     = "latent"    # moved into ComfyUI's built-in "latent" category
 
@@ -76,7 +76,7 @@ class EmptyLatentAspectByAxis:
         }
 
     RETURN_TYPES = ("LATENT",)
-    RETURN_NAMES = ("empty_latent",)
+    RETURN_NAMES = ("LATENT",)
     FUNCTION     = "generate"
     CATEGORY     = "latent"    # now appears under the built-in latent category
 
