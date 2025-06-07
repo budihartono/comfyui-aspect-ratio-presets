@@ -2,13 +2,13 @@
 
 PRESETS = [
     # model, label, w, h
-    ("SD 1.5",  "1:1 Square",    512, 512),
-    ("SD 1.5",  "3:2 Landscape", 768, 512),
-    ("SD 1.5",  "4:3 Landscape", 768, 576),
-    ("SD 1.5",  "16:9 Landscape",912, 512),
-    ("SD 1.5",  "2:3 Portrait",  512, 768),
-    ("SD 1.5",  "3:4 Portrait",  576, 768),
-    ("SD 1.5",  "9:16 Portrait", 512, 912),
+    ("SD15",  "1:1 Square",    512, 512),
+    ("SD15",  "3:2 Landscape", 768, 512),
+    ("SD15",  "4:3 Landscape", 768, 576),
+    ("SD15",  "16:9 Landscape",912, 512),
+    ("SD15",  "2:3 Portrait",  512, 768),
+    ("SD15",  "3:4 Portrait",  576, 768),
+    ("SD15",  "9:16 Portrait", 512, 912),
     ("SDXL",    "1:1 Square",    1024,1024),
     ("SDXL",    "3:2 Landscape", 1152,768),
     ("SDXL",    "4:3 Landscape", 1152,864),

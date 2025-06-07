@@ -9,16 +9,18 @@ def _validate_dim(v: int):
 class EmptyLatentAspectPreset:
     """Creates a blank latent using one of the predefined presets."""
     def __init__(self):
-        # Build a mapping from the dropdown key to (W, H)
-        self._map = {}
-        for model, lbl, w, h in PRESETS:
-            # "512x512 - 1:1 SD 1.5"
-            key = f"{w}x{h} - {lbl.split()[0]} {model}"
-            self._map[key] = (w, h)
+        # Build lookup from dropdown key to (W, H)
+        self._map = {
+            f"{w}x{h} {lbl} - {model}": (w, h)
+            for model, lbl, w, h in PRESETS
+        }
 
     @classmethod
     def INPUT_TYPES(cls):
-        choices = [f"{w}x{h} - {lbl.split()[0]} {model}" for model, lbl, w, h in PRESETS]
+        choices = [
+            f"{w}x{h} {lbl} - {model}"
+            for model, lbl, w, h in PRESETS
+        ]
         return {
             "required": {
                 "preset":     (choices,),
@@ -29,7 +31,7 @@ class EmptyLatentAspectPreset:
     RETURN_TYPES = ("LATENT",)
     RETURN_NAMES = ("empty_latent",)
     FUNCTION     = "generate"
-    CATEGORY     = "ComfyUI Aspect Ratio Preset"
+    CATEGORY     = "latent"    # moved into ComfyUI's built-in "latent" category
 
     def generate(self, preset: str, batch_size: int):
         if preset not in self._map:
@@ -40,14 +42,12 @@ class EmptyLatentAspectPreset:
         _validate_dim(h)
 
         latent = torch.zeros([batch_size, 4, h // 8, w // 8], dtype=torch.float32)
-        # return a single‐element tuple of a dict
         return ({"samples": latent},)
 
 
 class EmptyLatentAspectByAxis:
     """Creates a blank latent by fixing one axis and computing the other from an aspect ratio."""
-    # Precompute aspect choices
-    ASPECT_CHOICES = [
+    ASPECT_CHOICES    = [
         ("1:1 Square",     (1, 1)),
         ("3:2 Landscape",  (3, 2)),
         ("2:3 Portrait",   (2, 3)),
@@ -70,7 +70,7 @@ class EmptyLatentAspectByAxis:
             "required": {
                 "primary_dim":  ("INT",    {"default": 512, "min": 8}),
                 "reference":    (cls.REFERENCE_CHOICES,),
-                "aspect_ratio": ([lbl for lbl, _ in cls.ASPECT_CHOICES],),
+                "aspect_ratio": ([lbl for lbl,_ in cls.ASPECT_CHOICES],),
                 "batch_size":   ("INT",    {"default": 1,   "min": 1})
             }
         }
@@ -78,10 +78,9 @@ class EmptyLatentAspectByAxis:
     RETURN_TYPES = ("LATENT",)
     RETURN_NAMES = ("empty_latent",)
     FUNCTION     = "generate"
-    CATEGORY     = "ComfyUI Aspect Ratio Preset"
+    CATEGORY     = "latent"    # now appears under the built-in latent category
 
     def generate(self, primary_dim: int, reference: str, aspect_ratio: str, batch_size: int):
-        # Lookup numeric aspect tuple
         ratio_map = dict(self.ASPECT_CHOICES)
         if aspect_ratio not in ratio_map:
             raise ValueError(f"Unknown aspect ratio: {aspect_ratio}")
