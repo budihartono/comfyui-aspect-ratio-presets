@@ -11,7 +11,7 @@ class EmptyLatentAspectPreset:
     def __init__(self):
         # Build lookup from dropdown key to (W, H)
         self._map = {
-            f"{w}x{h} {lbl} - {model}": (w, h)
+            f"{w}x{h} - {lbl} - {model}": (w, h)
             for model, lbl, w, h in PRESETS
         }
 
