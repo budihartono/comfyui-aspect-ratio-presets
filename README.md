@@ -26,7 +26,7 @@ CASNodes lets you select popular **aspect ratio** and **resolution** presets—o
 
 * Open ComfyUI
 * Go to **Custom Node Manager**
-* Search for `CASNodes` or `comfyui-aspect-ratio-presets`
+* Search for `comfyui-aspect-ratio-presets`
 * Click **Install**
 
 ### 2. Manual (GitHub)
