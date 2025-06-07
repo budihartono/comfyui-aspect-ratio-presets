@@ -4,6 +4,9 @@ Unlock precision and convenience when generating empty latents for your favourit
 CASNodes lets you select popular **aspect ratio** and **resolution** presets—optimized for **Stable Diffusion 1.5, Stable Diffusion XL, Flux, Chroma, and HiDream**—or define your own by axis and ratio.
 
 ---
+![image](https://github.com/user-attachments/assets/2a3ca2d4-0d0a-4882-8360-0235fdd7fc66)
+
+---
 
 ## ✨ Features
 
