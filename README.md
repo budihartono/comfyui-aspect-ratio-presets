@@ -1,70 +1,103 @@
-# ComfyUI Aspect Ratio Presets
+# 📐 CASNodes: Aspect Ratio Presets for ComfyUI
 
-Two custom ComfyUI nodes to kick-start your latent workflows:
-
-* **Empty Latent (Aspect Ratio Preset)**
-  Choose from a curated list of popular model resolutions and aspect ratios.
-
-* **Empty Latent (Aspect Ratio by Axis)**
-  Specify one dimension and an X\:Y ratio; the node computes the other side automatically.
+Unlock precision and convenience when generating empty latents for your favourite models in ComfyUI!
+CASNodes lets you select popular **aspect ratio** and **resolution** presets—optimized for **Stable Diffusion 1.5, Stable Diffusion XL, Flux, Chroma, and HiDream**—or define your own by axis and ratio.
 
 ---
 
-## Features
+## ✨ Features
 
-* **Preset Mode**: Dropdown of Standard Diffusion, SDXL, Flux/HiD, HiDream resolutions.
-* **Axis Mode**: Enter a “primary dimension” (width or height) plus any common aspect ratio (1:1, 3:2, 16:9, 21:9, etc.).
-* **Validation**: Enforces positive values divisible by 8 to match VAE down-sampling.
-* **Batch Support**: Produce multiple blank latents in one go.
-* **Tooltips**: In-UI guidance for each parameter.
+* **Instant Dropdown Selection:**
+  Choose from a wide range of common image aspect ratios and sizes.
+* **Supports Leading Models:**
+  Fully compatible with SD 1.5, SDXL, Flux, Chroma, and HiDream.
+* **Two Node Modes:**
 
----
-
-## Installation
-
-1. Clone into your ComfyUI `custom_nodes/` directory:
-
-   ```bash
-   git clone https://github.com/yourusername/comfyui-aspect-ratio-presets.git
-   ```
-2. (Optional) Install dependencies:
-
-   ```bash
-   pip install -r custom_nodes/comfyui-aspect-ratio-presets/requirements.txt
-   ```
-3. Restart ComfyUI. The new nodes appear under **ComfyUI Aspect Ratio Preset**.
+  * **From Preset:** Pick from curated model/ratio presets.
+  * **By Axis:** Enter one dimension, pick aspect ratio, and auto-calculate the other.
+* **Clean ComfyUI Integration:**
+  Appears under the standard `latent` category—no clutter, pure utility.
 
 ---
 
-## Usage
+## 📦 Installation
 
-1. **Empty Latent (Aspect Ratio Preset)**
+### 1. With **ComfyUI Custom Node Manager** (Recommended)
 
-   * Open the node and pick a resolution like `SDXL 1152×768 (3:2 Landscape)`.
-   * Set your batch size (default 1).
-   * Connect the output into your generation graph.
+* Open ComfyUI
+* Go to **Custom Node Manager**
+* Search for `CASNodes` or `comfyui-aspect-ratio-presets`
+* Click **Install**
 
-2. **Empty Latent (Aspect Ratio by Axis)**
+### 2. Manual (GitHub)
 
-   * Enter a primary value (e.g. `1024`) and choose whether that’s your **Width** or **Height**.
-   * Select an aspect ratio label (e.g. `16:9 Landscape`).
-   * Adjust batch size if needed.
-   * Use the output tensor as a blank latent canvas.
-
----
-
-## Presets
-
-All built-in presets live in `presets.py` and follow the format:
-
-```
-(Model name, "X:Y Orientation", width, height)
+```bash
+cd YOUR_COMFYUI/custom_nodes
+git clone https://github.com/budihartono/comfyui-aspect-ratio-presets.git
 ```
 
-Feel free to extend or override this list in your fork.
+* Restart ComfyUI
 
 ---
 
-## License
+## 🛠️ Usage
 
-This project is released under the [MIT License](LICENSE). Feel free to use, modify, and redistribute!
+1. **Find your new nodes** under the `latent` group:
+
+   * **CAS Empty Latent Aspect Ratio from Preset**
+   * **CAS Empty Latent Aspect Ratio by Axis**
+
+2. **Preset Mode:**
+   Select a resolution and aspect ratio like:
+
+   * `1024x1024 1:1 Square - SDXL`
+   * `912x512 16:9 Landscape - SD15`
+   * `1216x832 3:2 Landscape - Flux`
+
+   *The output is a ready-to-use empty latent tensor, correctly sized for your model.*
+
+3. **By Axis Mode:**
+
+   * Enter a width or height.
+   * Pick your aspect ratio (e.g., `3:2 Landscape`).
+   * The node calculates the matching dimension.
+
+---
+
+## 💡 Typical Workflow
+
+```mermaid
+graph LR
+A[CAS Empty Latent Node] --> B(KSampler) --> C(VAEDecode) --> D(Output)
+```
+
+1. **Add a CASNodes latent node**
+2. Connect it to **KSampler** (or any node needing a latent)
+3. Decode and save as usual!
+
+---
+
+## 📚 Supported Aspect Ratios & Models
+
+* All presets are tailored for leading models:
+
+  * **Stable Diffusion 1.5**
+  * **Stable Diffusion XL**
+  * **Flux**
+  * **Chroma**
+  * **HiDream**
+* You can add your own in `presets.py`!
+
+---
+
+## 📝 Credits
+
+Developed by [@budihartono](https://github.com/budihartono)
+Open source & community-friendly.
+Issues and pull requests are warmly welcomed!
+
+---
+
+Enjoy supercharged workflows, perfectly matched to your favourite diffusion models!
+
+---
