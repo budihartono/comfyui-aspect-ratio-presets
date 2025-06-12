@@ -1,7 +1,7 @@
 [project]
 name = "aspect-ratio-presets"
 description = "Custom ComfyUI nodes for generating empty latent image with preset and axis-based aspect ratios."
-version = "1.0.4"
+version = "1.0.5"
 license = {file = "LICENSE"}
 dependencies = ["numpy"]
 
