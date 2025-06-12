@@ -28,8 +28,8 @@ class EmptyLatentAspectPreset:
             }
         }
 
-    RETURN_TYPES = ("LATENT",)
-    RETURN_NAMES = ("LATENT",)
+    RETURN_TYPES = ("LATENT", "INT", "INT")
+    RETURN_NAMES = ("LATENT", "WIDTH", "HEIGHT")
     FUNCTION     = "generate"
     CATEGORY     = "latent"    # moved into ComfyUI's built-in "latent" category
 
@@ -42,7 +42,7 @@ class EmptyLatentAspectPreset:
         _validate_dim(h)
 
         latent = torch.zeros([batch_size, 4, h // 8, w // 8], dtype=torch.float32)
-        return ({"samples": latent},)
+        return ({"samples": latent}, w, h)
 
 
 class EmptyLatentAspectByAxis:
@@ -75,8 +75,8 @@ class EmptyLatentAspectByAxis:
             }
         }
 
-    RETURN_TYPES = ("LATENT",)
-    RETURN_NAMES = ("LATENT",)
+    RETURN_TYPES = ("LATENT", "INT", "INT")
+    RETURN_NAMES = ("LATENT", "WIDTH", "HEIGHT")
     FUNCTION     = "generate"
     CATEGORY     = "latent"    # now appears under the built-in latent category
 
@@ -96,4 +96,4 @@ class EmptyLatentAspectByAxis:
         _validate_dim(h)
 
         latent = torch.zeros([batch_size, 4, h // 8, w // 8], dtype=torch.float32)
-        return ({"samples": latent},)
+        return ({"samples": latent}, w, h)
