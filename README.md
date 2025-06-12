@@ -1,7 +1,7 @@
 # 📐 CASNodes: Aspect Ratio Presets for ComfyUI
 
 Unlock precision and convenience when generating empty latents for your favourite models in ComfyUI!
-CASNodes lets you select popular **aspect ratio** and **resolution** presets—optimized for **Stable Diffusion 1.5, Stable Diffusion XL, Flux, Chroma, and HiDream**—or define your own by axis and ratio.
+CASNodes (Custom ASpect Ratio Nodes) lets you select popular **aspect ratio** and **resolution** presets—optimized for **Stable Diffusion 1.5, Stable Diffusion XL, Flux, Chroma, and HiDream**—or define your own by axis and ratio.
 
 ---
 ![cas_aspect_ratio](https://github.com/user-attachments/assets/7c7a6a63-b0d3-4527-b1c3-08dd42bd87cb)
